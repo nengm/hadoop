@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>hadoop</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>elasticsearch</module>
+    </modules>
+    <properties>
+        <!-- 指定maven编译时读取文件使用的编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 指定maven所有的报告输出的编码-->
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.test.skip>true</maven.test.skip>
+        <!-- maven插件版本 -->
+        <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>${maven-source-plugin.version}</version>
+            <configuration>
+                <!-- 二进制如证书文件不能过滤，防止这些文件被篡改 -->
+                <nonFilteredFileExtensions>
+                    <nonFilteredFileExtension>so</nonFilteredFileExtension>
+                    <nonFilteredFileExtension>dll</nonFilteredFileExtension>
+                    <nonFilteredFileExtension>store</nonFilteredFileExtension>
+                    <nonFilteredFileExtension>lic</nonFilteredFileExtension>
+                    <nonFilteredFileExtension>p12</nonFilteredFileExtension>
+                    <nonFilteredFileExtension>conf</nonFilteredFileExtension>
+                    <nonFilteredFileExtension>keytab</nonFilteredFileExtension>
+                </nonFilteredFileExtensions>
+            </configuration>
+            <!-- 解决war插件filtering开启后出现编译异常问题 -->
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.maven.shared</groupId>
+                    <artifactId>maven-filtering</artifactId>
+                    <version>3.1.1</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven-compiler-plugin.version}</version>
+            <configuration>
+                <source>8</source>
+                <target>8</target>
+                <encoding>utf-8</encoding>
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>${maven-assembly-plugin.version}</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass></mainClass>
+                    </manifest>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
+</project>
