@@ -213,7 +213,7 @@ esManger.addIndexAndType("studentinfo",3,1,hashMap);
 
 ## 16、准备数据
 
-生活数据
+生产数据，为了更快的演示现象，我们使用随机路由。
 
 ```
 //假设有全校一共有5000个人
