@@ -3,6 +3,6 @@
 
 
 
-# 1、ELasticsearch 聚合排序方案
+# 1、ELasticsearch 聚合排序不准分析处理
 
-[ELasticsearch 聚合排序方案](https://github.com/nengm/hadoop/blob/main/elasticsearch/README.md)
+[ELasticsearch 聚合排序不准分析处理](https://github.com/nengm/hadoop/blob/main/elasticsearch/README.md)

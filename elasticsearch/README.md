@@ -1,4 +1,4 @@
-# ELasticsearch 聚合排序方案
+# ELasticsearch 聚合排序不准分析处理
 
 ELasticsearch进行聚合排序时，分片间是不保证能正确排序的。
 
