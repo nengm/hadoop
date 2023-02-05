@@ -10,6 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>elasticsearch</module>
+        <module>livy</module>
+        <module>spark</module>
     </modules>
     <properties>
         <!-- 指定maven编译时读取文件使用的编码 -->
@@ -53,10 +55,11 @@
                 <dependency>
                     <groupId>org.apache.maven.shared</groupId>
                     <artifactId>maven-filtering</artifactId>
-                    <version>3.1.1</version>
+                    <version>${maven-source-plugin.version}</version>
                 </dependency>
             </dependencies>
         </plugin>
+        <!-- 指定编译java的插件 -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -67,7 +70,26 @@
                 <encoding>utf-8</encoding>
             </configuration>
         </plugin>
-
+        <!-- 指定编译scala的插件 -->
+        <plugin>
+            <groupId>net.alchim31.maven</groupId>
+            <artifactId>scala-maven-plugin</artifactId>
+            <version>3.2.2</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>compile</goal>
+                        <goal>testCompile</goal>
+                    </goals>
+                    <configuration>
+                        <args>
+                            <arg>-dependencyfile</arg>
+                            <arg>${project.build.directory}/.scala_dependencies</arg>
+                        </args>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
