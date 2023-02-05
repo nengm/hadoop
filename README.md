@@ -5,5 +5,4 @@
 
 # 1、ELasticsearch 聚合排序方案
 
-[ELasticsearch 聚合排序方案]: https://github.com/nengm/hadoop/blob/main/elasticsearch/README.md
-
+[ELasticsearch 聚合排序方案](https://github.com/nengm/hadoop/blob/main/elasticsearch/README.md)
