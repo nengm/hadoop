@@ -1,8 +1,8 @@
 # ELasticsearch 聚合排序不准分析处理
 
-ELasticsearch进行聚合排序时，分片间是不保证能正确排序的。
+​		ELasticsearch进行聚合排序后取TopN，对于每个分片都会取TopN，然后分片间再进行TopN，这种会导致结果不准。
 
-接下去我们按照步骤来测试下，同时也看下整个过程。
+​		接下去我们按照步骤来测试下，同时也看下整个过程。
 
 # 1、安装ELasticsearch
 

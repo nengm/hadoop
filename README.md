@@ -5,4 +5,7 @@
 
 # 1、ELasticsearch 聚合排序不准分析处理
 
+​		ELasticsearch进行聚合排序后取TopN，对于每个分片都会取TopN，然后分片间再进行TopN，这种会导致结果不准。
+
 [ELasticsearch 聚合排序不准分析处理](https://github.com/nengm/hadoop/blob/main/elasticsearch/README.md)
+
