@@ -12,18 +12,57 @@
     <artifactId>livy</artifactId>
 
     <dependencies>
+
+        <!--    日志框架：slf4j-->
+        <!--    日志实现：log4j2-->
+        <!--    桥接包：log4j-slf4j-impl-->
+
+        <!-- 日志实现 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+        <!-- 日志桥接包   桥接包的版本须对应log4j2的版本 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+        </dependency>
+        <!-- 日志框架(门面) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
         <!-- Livy -->
         <dependency>
             <groupId>org.apache.livy</groupId>
             <artifactId>livy-client-http</artifactId>
             <version>0.7.1-incubating</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.2</version>
+        </dependency>
+
+        <!-- fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <!-- spark算子包 -->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>spark</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

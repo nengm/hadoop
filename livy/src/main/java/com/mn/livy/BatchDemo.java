@@ -1,5 +1,7 @@
 package com.mn.livy;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -10,10 +12,17 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.livy.LivyClient;
 import org.apache.livy.LivyClientBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @program:hadoop
@@ -22,11 +31,21 @@ import java.net.URISyntaxException;
  * @create:2023-02-05 20:18
  **/
 public class BatchDemo {
+    private final static Logger logger = LoggerFactory.getLogger(BatchDemo.class);
     public static void main(String[] args) throws IOException, URISyntaxException {
-        String livyUrl = "192.168.52.101";
-        //未完待续
+        String livyUrl = "http://192.168.52.101:18998";
 
-
+        Map<String ,Object> params = new HashMap<>();
+        params.put("file","/opt/livy/tmpfile/jars/spark-1.0-SNAPSHOT.jar");
+        params.put("className","com.mn.demo.WordCount");
+        List<String > t = new ArrayList<>();
+        t.add("/opt/test.txt");
+        t.add("/opt/result");
+        params.put("args",t);
+        String ret = post(livyUrl + "/batches",new JSONObject(params).toString());
+        Map<String, Object> v = (Map<String, Object>) JSON.parse(ret);
+        String sessionId = v.get("id").toString();
+        logger.info(sessionId);
     }
 
     public static String post(String url, String jsonStr) throws IOException {
