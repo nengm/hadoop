@@ -26,9 +26,44 @@
         <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
+
+        <log4j-core.version>2.12.1</log4j-core.version>
+        <log4j-slf4j-impl.version>2.12.1</log4j-slf4j-impl.version>
+        <slf4j-api.version>1.7.30</slf4j-api.version>
+
+        <fastjson-version>1.2.83</fastjson-version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <!--    日志框架：slf4j-->
+            <!--    日志实现：log4j2-->
+            <!--    桥接包：log4j-slf4j-impl-->
+
+            <!-- 日志实现 -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j-core.version}</version>
+            </dependency>
+            <!-- 日志桥接包   桥接包的版本须对应log4j2的版本 -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j-slf4j-impl.version}</version>
+            </dependency>
+            <!-- 日志框架(门面) -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson-version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

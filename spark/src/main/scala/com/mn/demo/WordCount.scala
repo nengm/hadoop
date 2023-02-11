@@ -15,7 +15,6 @@ object WordCount {
       println("要输入input和output")
       System.exit(1);
     }
-
     //spark上下文执行环境
     val conf:SparkConf = new SparkConf().setAppName("wordcount");
     val sc:SparkContext = new SparkContext(conf);
