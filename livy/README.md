@@ -4,7 +4,7 @@
 
 ​		看下llivy官网的图，我们可以大概了解到livy的工作过程，其实就是充当了当我们提交作业到spark上的这个角色。以前我们直接要到有spark client的机器上进行submit的操作，现在我们只要使用restful就能完成所有的操作。
 
-![img](https://docimg10.docs.qq.com/image/AgAABS4iltCfxr4hHu5MY6fQxAO7_evd.png?w=800&h=425)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image.png)
 
 ​		本文重点是我们从0到1分析运用最最实际的用法，其他的用法可以在此基础上探索。
 
@@ -24,11 +24,11 @@ https://github.com/apache/incubator-livy
 
 修改pom
 
-![img](https://docimg7.docs.qq.com/image/AgAABS4iltCfgWf7ZBZEyZKHeRtUbbXK.png?w=1845&h=754)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image4.png)
 
-![img](https://docimg2.docs.qq.com/image/AgAABS4iltCEoiPu4r9M5bN-9t7H4FD8.png?w=1861&h=152)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image5.png)
 
-![img](https://docimg9.docs.qq.com/image/AgAABS4iltDjWokohf5E7ppPFckhOx-8.png?w=1851&h=546)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image6.png)
 
 我用git bash进行编译的，因为里面有bash命令
 
@@ -36,7 +36,7 @@ https://github.com/apache/incubator-livy
 mvn -DskipTests clean package
 ```
 
-![img](https://docimg7.docs.qq.com/image/AgAABS4iltCrV2JxRvxA4aefTU1xkuUQ.png?w=1064&h=608)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image7.png)
 
 2、安装
 
@@ -104,9 +104,9 @@ cd /opt/livy/bin
 ./livy-server start
 ```
 
-![img](https://docimg3.docs.qq.com/image/AgAABS4iltAX8z_fA9JEbLUeVyg-upgy.png?w=597&h=270)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image3.png)
 
-![](https://docimg3.docs.qq.com/image/AgAABS4iltCUQbek3rJE25VE44cShSe9.png?w=1537&h=568)
+![](https://github.com/nengm/picturebed/blob/main/livy/image2.png)
 
 
 
@@ -246,11 +246,11 @@ public class BatchDemo {
 
 ### 4、结果
 
-![img](https://docimg8.docs.qq.com/image/AgAABS4iltBPvRVcnRdKH6aUNyn19Sjj.png?w=1908&h=425)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image8.png)
 
 生成的结果也OK
 
-![img](https://docimg4.docs.qq.com/image/AgAABS4iltAip4c7rq1I2akAtLdvZzGJ.png?w=439&h=153)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image9.png)
 
 ## 2、Interactive session方式
 
@@ -282,7 +282,7 @@ public class BatchDemo {
 
 此块代码就是spark处理的核心代码jar中。我们写在spark的jar中。
 
-![img](https://docimg5.docs.qq.com/image/AgAABS4iltCcWDwpROVI0r4eL_sUwz3u.png?w=413&h=444)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image10.png)
 
 ```
 package com.mn.demo
@@ -330,7 +330,7 @@ object DataOperate {
 
 
 
-![img](https://docimg9.docs.qq.com/image/AgAABS4iltA1Yc9LpL9CJp0KTwFXj_g0.png?w=395&h=486)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image11.png)
 
 ```
 package com.mn.core;
@@ -462,7 +462,7 @@ public class SeesionDemo {
 }
 ```
 
-![img](https://docimg7.docs.qq.com/image/AgAABS4iltA7nerzEiVLgKf0-ImvD2pM.png?w=373&h=54)
+![img](https://github.com/nengm/picturebed/blob/main/livy/image12.png)
 
 ### 4、参数
 
